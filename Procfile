@@ -1,0 +1,1 @@
+web: gunicorn invest2020.wsgi --log-file -
