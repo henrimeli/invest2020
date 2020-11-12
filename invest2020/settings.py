@@ -92,7 +92,9 @@ elif os.environ.get('GITHUB_WORKFLOW'):
     }
   }
 else:
-  DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+  DATABASES = {  
+    'default' : dj_database_url.config(conn_max_age=600, ssl_require=True) 
+  }
   #The line below is required for Heroku: https://devcenter.heroku.com/articles/heroku-postgresql (search for Django)
 
 
