@@ -14,13 +14,13 @@ runDjangoServer() {
 runUnitTest(){
   echo "Running Unit Test "
   python -Wa  manage.py test invest2020.unittests.tradedataholder.tests 
-  exit 1
+  exit 0
 }
 
 
 runAllUnitTests(){
   echo "Running Unit Test "
-  exit 1
+  exit 0
 }
 
 
@@ -46,7 +46,7 @@ done
 
 help(){
   echo " runInvest.sh -a [ django | unittests | unittest | all  ] -d "
-  exit 1
+  exit 0
 }
 
 ##############MAIN Starts Here ###########
