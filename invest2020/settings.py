@@ -16,14 +16,13 @@ import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print("Base DIR {}".format(BASE_DIR))
  
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = ')#%jao7n84#ossi^21$=zr9!e9tzq-t+zxp3lw_mc^ghaelh-x'
-SECRET_KEY = os.environ.get('INVEST_2020_SECRET_KEY')
+SECRET_KEY = ')#%jao7n84#ossi^21$=zr9!e9tzq-t+zxp3lw_mc^ghaelh-x'
+#SECRET_KEY = os.environ.get('INVEST_2020_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
