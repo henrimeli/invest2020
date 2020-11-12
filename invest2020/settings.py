@@ -73,24 +73,27 @@ WSGI_APPLICATION = 'invest2020.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+#print("Hostname= {}".format(os.environ.get('TERM_PROGRAM')))
 
-
-DATABASES = {
+if os.environ.get('TERM_PROGRAM') == 'Apple_Terminal' and os.environ.get('USER') == 'henrimeli':
+  DATABASES = {
     'default': {
         'HOST':'',
         'USER':'djangouser',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'inv2020_db', 
     }
-}
-
-
-DEFAULT_DATABASES = {
+  }
+elif os.environ.get('GITHUB_WORKFLOW'):
+  DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+  }
+else:
+  DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+  #The line below is required for Heroku: https://devcenter.heroku.com/articles/heroku-postgresql (search for Django)
 
 
 # Password validation
@@ -131,4 +134,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
