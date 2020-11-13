@@ -5,8 +5,15 @@ from django.utils import timezone
 from django.test import TestCase
 
 # Import Models, Functions
-from bullbearetfs.models import strToDatetime, getTimeZoneInfo, InvalidTradeDataHolderException
-from bullbearetfs.models import ETFAndReversePairRobot, TradeDataHolder, RoundTrip
+#from bullbearetfs.models import strToDatetime, getTimeZoneInfo, InvalidTradeDataHolderException
+#from bullbearetfs.models import ETFAndReversePairRobot, TradeDataHolder, RoundTrip
+
+# Import Models
+from bullbearetfs.models import TradeDataHolder, ETFAndReversePairRobot
+from bullbearetfs.utilities.core  import  getTimeZoneInfo,shouldUsePrint
+from bullbearetfs.utilities.errors  import   InvalidTradeDataHolderException
+from bullbearetfs.robot.models import RobotEquitySymbols 
+
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +44,7 @@ def test_roundtrip_dummy(request):
 # -Time & Price proximity: How close are we to hitting a given price? Time difference in acquisition.
 # -Shares Quantity via the TradeHolder Class
 # -Data Preparation for various Reports.
-# -Risk Exposure after divesting one side. To be implemented as version 2.0 
+# -Risk Exposure after divesting one side. To be implemented as version 2.0 . Tolerance zones, Tolerance Factors
 # Each Test of the Roundtrip should have sections that focus on each of the areas above to ensure full coverage
 # of the functionalities.
 ##############################################################################################################

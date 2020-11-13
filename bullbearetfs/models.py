@@ -7,23 +7,11 @@ from django.contrib.auth.models import  User
 import logging, json, time, pytz, asyncio, re
 from datetime import timedelta
 from os import environ 
-#import dateutil.parser
 
+# Import Models
+from bullbearetfs.utilities.core import getTimeZoneInfo, shouldUsePrint, strToDatetime
+from bullbearetfs.utilities.errors import InvalidTradeDataHolderException
 
-#
-# Single location to setup the Timezone information.
-#
-def getTimeZoneInfo():
-  return timezone.utc
-
-def getCurrentTimeZonInfo():
-  return timezone.get_current_timezone()
-
-def shouldUsePrint():
-  return True if (environ.get('PRINT_VAR') is not None) else False
-
-class InvalidTradeDataHolderException(Exception):
-  pass
 
 class NotificationType(models.Model):
   name = models.CharField(max_length=20,default='')
@@ -34,22 +22,26 @@ class NotificationType(models.Model):
 
 # A Roundtrip is an abstraction of the concept of a simulteneous Bull and a Bear entry
 # Given a Robot and a root_id, the RoundTrip can retrieve both the bull and the bear and manage various aspects of it 
-# elegantly and with programmatic clarity via a single Interface/Namespace/Class.
-# In the Egghead Project, Bull and Bears are always acquired in Pairs. They don't have to be disposed of in Pairs. 
+# elegantly (in an Object Oriented way) and with programmatic clarity via a single Interface/Namespace/Class.
+# In the Egghead Project, Bulls and Bears are always acquired in Pairs. They don't have to be disposed of in Pairs. 
 # The main role of the Rountrip Class is to fully manage that abstraction and provide programmatic/algorithmic clarity
 # as well as facilitate the access/manipulation/modification of the data.
 #
-# RoundTrips Classes are NOT model classes. They are therefore not persisted. instead, they are built on the fly to serve
+# RoundTrip Classes are NOT model classes. They are therefore not persisted. Instead, they are built on the fly to serve
 # a very clear instantaneous purpose and dismissed once that purpose has been achieved.
 # In O/O they would be tantamount to Interfaces. 
 # RoundTrip classes are also provided en-lieu of adding too much program logic inside of a Model class.
 # RoundTrip classes can also be seen as providing a namespace for very specific type of functionality. 
-# 
-# There are various functions provided in the Rountrip Class with the purpose of managing the following aspects:
+#
+# The Roundtrip Class is a Foundational Class of the Egghead Project, meaning it provides functionality that is expected
+# to be reused by various other classes. It is therefore critical that it be well designed, implemented, 
+# completely and very accurately tested. Future changes to this class must be done very carefully.
+#  
+# There are various methods provided in the Rountrip Class with the purpose of managing the following aspects:
 #
 # - Bull/Bear Access Management: All Inquiries, Accesses to Bull/Bear Data MUST go through a method/function provided by the Roundtrip class.
-# - Stages Management: Each Roundtrip goes through a lifecycle. Acquisition, Partial Disposition, and Complete Disposition. 
-#                      See below about the discussion on the different stages.
+# - Object States Management: Each Roundtrip goes through a lifecycle: Acquisition, Partial Disposition, and Complete Disposition. 
+#                      See below about the discussion on the different states of the RoundTrip Class.
 # - Age, Duration Management: Each assets has a lifespann determined by how long it has been held.
 # - Individual and combined Value Management: Each Bull/Bear has a value at acquisition and through its lifecycle.
 #     The Roundtrip is capable of determining the value of the individual and combined assets at any given time.
@@ -57,11 +49,12 @@ class NotificationType(models.Model):
 # - Composition Management: How much each asset (Bull/Bear) contributes to the combined value of the investment is critical.
 # 
 # At Acquisition time, the Bear and the Bull have a monetary value determined based on their composition. Their composition might defer.
-# Through its lifetime, the Roundtrip goes through a maximum of 3 main stages, depending on the Strategy Class Selected.
-# 1. Stable Stage: Roundtrip.isStable() == True A pair was just acquired and its combined value is close to zero, regardless of market conditions
-# 2. Transition Stage: One side of the Pair has been sold. As the market moves, the value of the other side moves.
+# Through its lifetime, the Roundtrip goes through various states, depending on the Strategy Class Selected.
+# 1. Stable State: [Roundtrip.isStable() == True] A pair was just acquired and its combined value is close to zero, regardless of market conditions
+# 2. Transition Stage: [Roundtrip.isInTransition() == True] One side of the Pair has been sold. As the market moves, the value of the other side moves.
 # The goal is to wait until an asset in transition reaches the optimal value, so it can be moved to Completion phase
-# 3. Completion Stage: The completion stage is reached when the other side of the asset is sold as well.
+# 3. Completion Stage: [Roundtrip.isComplete() == True] The completion stage is reached when the other side of the asset is sold as well.
+# 4. Active State: [Roundtrip.isStable() == True or [Roundtrip.isInTransition() == True]]
 #
 class RoundTrip():
   def __init__(self,robot,root_id):
@@ -128,7 +121,6 @@ class RoundTrip():
   def getBearQuantity(self):
     return self.getTheBear().quantity
 
-
   def getBearCurrentPrice(self):
     return self.current_bear_price
 
@@ -143,7 +135,7 @@ class RoundTrip():
 
 ###########################################################################################
 #
-#  Validation and Final Stages Check (Stable, Transition, Completed)
+#  Validation and Roundtrip States Check (Stable, Transition, Completed)
 #
   #Ensure there is exactly 2 entries in the table with the same order_client_ID_Root
   def hasExactlyTwoEntries(self):
@@ -166,12 +158,6 @@ class RoundTrip():
   def isInTransition(self):
     return self.isInBullishTransition() or self.isInBearishTransition()
 
-  def isInBullishWinningTransition(self,transition_id):
-        return self.isInBullishTransition() and (self.getWinningOrderClientIDRoot()==transition_id)
-
-  def isInBearishWinningTransition(self,transition_id):
-        return self.isInBearishTransition() and (self.getWinningOrderClientIDRoot()==transition_id)
-
   def isActive(self):
         return self.isStable() or self.isInTransition()
 
@@ -185,9 +171,9 @@ class RoundTrip():
           return "Bearish"
     return "Invalid"
 
-###########################################################################################################
+#####################################################################################################################
 # StableRoundTrips: Similar to the Roundtrip, this is not a persistable Class. 
-# It is an interface to collection of roundtrip data that are in a particular stage. The Stable Stage.
+# It is an interface to collection of Roundtrip data that are in a particular state at a given time. The Stable State.
 # For All the entries in the StableRoundTrips(): RoundTrips.isStable() returns True 
 #
 # StableRoundTrirps: This is the encapsulation of ALL Assets in a Stable State
@@ -207,7 +193,7 @@ class StableRoundTrips():
         self.stable_list.append(rt)
 
   def __str__(self):
-   return "{0}".format('Hello, this is the StableRoundtrip Class')
+   return "{0}".format('This is the StableRoundtrips Class')
 
   def printEntries(self):
     print("\n")
@@ -259,21 +245,38 @@ class StableRoundTrips():
     return None if len(candidates) == 0 else candidates[0]
 
 
-# The stages of the Robot. Stable, InTransition and Completion
-  # Once the initialization completes, the ... moves into the trading phase.
-  # During the trading phase, roundtrips are moved through their own stages.
-  # The stages of each Roundtrip : Stable Phase, Transition Phase, Completion Phase.
-  # What is a Roundtrip? A Roundtrip is the ownership of two assets that move in opposite direction at the same time.
-  # We must own both assets in exact cost basis value. i.e.: We buy TQQQ & SQQQ for the exact same amount of money
-  # at the same time. Acquisition is always done exactly at the same time.
-  # After acquisition, the portfolio is stable. And regardless of the direction the market goes, our portfolio will
-  # Always have the same value. Using this strategy allows us to enter the market at any time, regardless of conditions.
-  # This eliminates the need to use speculative means to enter the market.
-  # Once the market has moved enough in one direction, we can now exit one position and take profit.
-  # At this point, the roundtrip moves into its transition period.
-  # While stable, each Roundtrip is safe.
-  # Robot has mini
-  #################################################################################
+
+# An ETFAndReversePairRobot (ETF-EA) is an automated and autonoumous Runner, that processes Stock Market Events 
+# to decide when to Acquire and Dispose of Assets. This Class of Equity Trading Robot focuses solely on Stock Market 
+# Equities Based on Leveraged ETFs acquired in Pairs. One side is Bullish and the other side is Bearish.
+# Both are following the exact same index.
+# For example, the Robot can be configured to trade the Bullish/Bearish pairs of the Nasdaq 100 (TQQQ/SQQQ) or
+# the Bullish/Bearish pairs of the DOW Jones Industrial (SDOW/UDOW). 
+# Each Robot can only deal with a single Bull/Bear pair at a time.   
+# An ETFAndReversePairRobot is created, configured then deployed. From here, it is expected to runs automatically
+# and makes decisions based on its configuration and strategies. There should be as little manual intervention as
+# possible during its run. 
+# 
+# Components of an Equity Trading Robot:
+# Each Trading Robot is designed to be as flexible and configurable as possible. Therefore it provides lots of options.
+# During the configuration, the user should be able to select:
+#   -Equity Symbols: The acceptable pairs have already been pre-selected and stored as Master Pairs. The User can only select
+#    from those pre-selected pairs. 
+#   -Budget Management: The user should be able to select how much money they want to spend per acquisition, as well as their overall budget.
+#    Budget data is synchronized based on the Brokerage Policy
+#   -Strategy Class and Strategy: A certain number of strategies have been developed and implemented.  During the configuration
+#    the user should be able to select which Strategy to chose from. 
+#    All Strategies will use Cameroonian-based names. Especially names of villages in the Bamboutos Division. 
+# It consists of an Acquisition Policy, a Disposition Policy, a Portfolio Protection Policy,
+# An Orders Management Policy, Transaction Data
+# Acquisition Policy: Determines at when Assets should be purchased. It uses Entry Indicators to determine
+# the most appropriate time to enter a market position, which asset to purchase and how much to spend.
+# Disposition Policy: Determines at what time Assets should be disposed of. It uses Exit Indicators to determine
+# the most appropriate time to dispose of an Asset.
+# Portfolio Protection Policy: Once an asset has been purchased, it determines the how to protect the asset.
+# Order Management Policy: It determines which Order Types should be used when acquiring/disposing of an asset.
+# Transaction Data: This is where Transaction Data are kept.
+# Profit Targets: Projection / targets are used to follow the evolution of unrealized gains through the lifetime of  #################################################################################
 class ETFAndReversePairRobot(models.Model):
   name = models.CharField(max_length=50,default='')
   description = models.CharField(max_length=50,default='')

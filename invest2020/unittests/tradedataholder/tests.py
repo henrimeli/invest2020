@@ -4,7 +4,10 @@ from django.utils import timezone
 from django.test import TestCase
 
 # Import Models
-from bullbearetfs.models import TradeDataHolder, getTimeZoneInfo, InvalidTradeDataHolderException,shouldUsePrint
+from bullbearetfs.models import TradeDataHolder, ETFAndReversePairRobot
+from bullbearetfs.utilities.core  import  getTimeZoneInfo,shouldUsePrint
+from bullbearetfs.utilities.errors import InvalidTradeDataHolderException
+from bullbearetfs.robot.models import RobotEquitySymbols 
 
 logger = logging.getLogger(__name__)
 
