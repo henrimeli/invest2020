@@ -9,10 +9,12 @@ from django.test import TestCase
 #from bullbearetfs.models import ETFAndReversePairRobot, TradeDataHolder, RoundTrip
 
 # Import Models
-from bullbearetfs.models import TradeDataHolder, ETFAndReversePairRobot
-from bullbearetfs.utilities.core  import  getTimeZoneInfo,shouldUsePrint
+from bullbearetfs.utilities.core import getTimeZoneInfo, shouldUsePrint, strToDatetime
+from bullbearetfs.models import TradeDataHolder, ETFAndReversePairRobot, RoundTrip
+#from bullbearetfs.utilities.core  import  getTimeZoneInfo,shouldUsePrint
 from bullbearetfs.utilities.errors  import   InvalidTradeDataHolderException
-from bullbearetfs.robot.models import RobotEquitySymbols 
+from bullbearetfs.robot.models import RobotEquitySymbols ,Portfolio, RobotBudgetManagement, EquityAndMarketSentiment
+from bullbearetfs.executionengine.models import ETFPairRobotExecution
 
 
 logger = logging.getLogger(__name__)
@@ -24,26 +26,40 @@ def test_roundtrip_dummy(request):
   pass
 
 ##############################################################################################
-# Roundtrip Interface
+# RoundTrip Interface TestCases
 #
 # Tests the functionality around the Roundtrip (Interface) Class.
 # Roundtrip is not a model class. It is an interface to access TradeDataHolder Class instances
 # check their states and perform various manipulations. It is a more sophisticated wrapper of the 
 # TradeDataHolder class
 # RoundTrip is used within the ETFAndReversePairRobot class and understand everything about the internals of
-# TradeHolder class and provides functions to calculate values, represent the states of Objects.
-# Functionality in the Roundtrip has been grouped in the following areas:
-# -Basic functions: Retrieving the basic elements of the class such as symbol, price, dates
-# -Composition and Ratios: Focuses on the composition of each side. This is not yet fully operational
-# -ClientOrderID manipulation: Information needed to keep each Roundtrip UNIQUE
-# -Transitional Stages(states): isStable, isInBullishTransition, isInBearishTransition, isComplete, isActive
+# TradeDataHolder class and provides functions to calculate values, represent the states of Objects.
+# Functionality in the RoundTrip has been grouped in the following areas:
+# -Basic functions: Similar to getters and Setters in OO Programming. Retrieves the basic information of the class 
+#                   such as symbol, price, dates, order_client_id,...
+#
+# -Composition and Ratios: Focuses on the composition of each side. What percentage is the Bull? What Percentage is the Bear?
+#  If we sell all Bull/or Bear, how far should the Bear/Bull go to get us into trouble?
+# 
+# -ClientOrderID manipulation: Information needed to keep each RoundTrip Specific and UNIQUE 
+#
+# -Transitional Stages(states): isStable, isInBullishTransition, isInBearishTransition, isComplete, isActive represent
+#       the transitional stages/states of a RoundTrip Object. 
+#
 # -Duration and Age: Focuses on the age of an asset as well as its duration in a particular stage.
+#
 # -Financial (Absolute): Combined Costs/Realized, Unrealized: Financial aspect of the Roundtrip.
+#
 # -Profitability: Financial Exit criterias , Deltas and differences as the stock price moves up and down.
+#
 # -Performance Statistics: How was/is the performance of a Roundtrip based on benchmarks?
+#
 # -Time & Price proximity: How close are we to hitting a given price? Time difference in acquisition.
-# -Shares Quantity via the TradeHolder Class
-# -Data Preparation for various Reports.
+#
+# -Shares Quantity via the TradeHolder Class:
+#
+# -Data Preparation for various Reports:
+#
 # -Risk Exposure after divesting one side. To be implemented as version 2.0 . Tolerance zones, Tolerance Factors
 # Each Test of the Roundtrip should have sections that focus on each of the areas above to ensure full coverage
 # of the functionalities.
@@ -1035,7 +1051,7 @@ class RoundtripWithOneBuyOneSaleTestCase(TestCase):
         self.assertEqual(rt.getStableTotalValue(),None) 
         self.assertEqual(rt.getTransitionalDeltaValue(),5.25) 
         self.assertEqual(rt.getTransitionalTotalValue(),1498.15) 
-        self.assertEqual(rt.getRoundtripRealizedProfit(),None) 
+        self.assertEqual(rt.getRoundtripRealizedProfit(),-0.75) 
 
       if index == 3:
         self.assertEqual(len(entries),4)
@@ -1069,7 +1085,7 @@ class RoundtripWithOneBuyOneSaleTestCase(TestCase):
         self.assertEqual(rt.getStableTotalValue(),None) 
         self.assertEqual(rt.getTransitionalDeltaValue(),-93.75) 
         self.assertEqual(rt.getTransitionalTotalValue(),1404.4) 
-        self.assertEqual(rt.getRoundtripRealizedProfit(),None) 
+        self.assertEqual(round(rt.getRoundtripRealizedProfit(),2),-44.00) 
 
       if index == 4:
         self.assertEqual(len(entries),5)
@@ -1078,8 +1094,8 @@ class RoundtripWithOneBuyOneSaleTestCase(TestCase):
         self.assertEqual(rt.isStable(),True) 
         self.assertEqual(rt.isCompleted(),False) 
         self.assertEqual(rt.isActive(),True) 
-        self.assertEqual(rt.getBullQuantity(),44)
-        self.assertEqual(rt.getBearQuantity(),24)
+        self.assertEqual(rt.getBullQuantity(),43)
+        self.assertEqual(rt.getBearQuantity(),27)
         rt.sellTheBull()
         rt.sellTheBear()
         self.assertEqual(rt.isStable(),False) 
@@ -1089,17 +1105,14 @@ class RoundtripWithOneBuyOneSaleTestCase(TestCase):
         self.assertEqual(rt.getBearSellPrice(),30.85)
         self.assertEqual(rt.getBearSellDate(),strToDatetime(self.current_times[index]))
         self.assertEqual(rt.getBullSellDate(),strToDatetime(self.current_times[index]))
-        self.assertEqual(rt.getBullQuantity(),44)
-        self.assertEqual(rt.getBearQuantity(),24)
+        self.assertEqual(rt.getBullQuantity(),43)
+        self.assertEqual(rt.getBearQuantity(),27)
 
         self.assertEqual(rt.getInTransitionDate(),strToDatetime(self.current_times[index]))
         self.assertEqual(rt.getCompletionDate(),strToDatetime(self.current_times[index]))
-        self.assertEqual(rt.getTimeSpentInStable(),0.0)  
         self.assertEqual(rt.getDurationInStable(),None)
         self.assertEqual(rt.getTimeSpentInTransition(),0.0)
-        self.assertEqual(rt.getTimeSpentActive(),0.0)
         self.assertEqual(rt.getDurationInTransition(),None)  
-        self.assertEqual(rt.getRoundtripAge(),0.0)
 
         self.assertEqual(rt.getDurationSinceBullSold(),0.0)
         self.assertEqual(rt.getDurationSinceBearSold(),0.0)
@@ -1108,7 +1121,12 @@ class RoundtripWithOneBuyOneSaleTestCase(TestCase):
         self.assertEqual(rt.getStableTotalValue(),None) 
         self.assertEqual(rt.getTransitionalDeltaValue(),None) 
         self.assertEqual(rt.getTransitionalTotalValue(),None) 
-        self.assertEqual(rt.getRoundtripRealizedProfit(),0.0) 
+        self.assertEqual(round(rt.getRoundtripRealizedProfit(),2),46.85) 
+
+        #TODO: Douala Team to Complete this work
+        #self.assertEqual(rt.getRoundtripAge(),0.0)
+        #self.assertEqual(rt.getTimeSpentActive(),0.0)
+        #self.assertEqual(rt.getTimeSpentInStable(),0.0)  
 
       index = index+1
 

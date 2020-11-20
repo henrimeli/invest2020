@@ -13,8 +13,8 @@ runDjangoServer() {
 
 runUnitTest(){
   echo "Running Unit Test "
-  python -Wa  manage.py test invest2020.unittests.tradedataholder.tests 
-  #python -Wa  manage.py test invest2020.unittests.roundtrip.roundtriptests 
+  #python -Wa  manage.py test invest2020.unittests.tradedataholder.tests 
+  python -Wa  manage.py test invest2020.unittests.roundtrip.roundtriptests 
   exit 0
 }
 
