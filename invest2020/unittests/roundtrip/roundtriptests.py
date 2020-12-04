@@ -11,7 +11,6 @@ from django.test import TestCase
 # Import Models
 from bullbearetfs.utilities.core import getTimeZoneInfo, shouldUsePrint, strToDatetime
 from bullbearetfs.models import TradeDataHolder, ETFAndReversePairRobot, RoundTrip
-#from bullbearetfs.utilities.core  import  getTimeZoneInfo,shouldUsePrint
 from bullbearetfs.utilities.errors  import   InvalidTradeDataHolderException
 from bullbearetfs.robot.models import RobotEquitySymbols ,Portfolio, RobotBudgetManagement, EquityAndMarketSentiment
 from bullbearetfs.executionengine.models import ETFPairRobotExecution
