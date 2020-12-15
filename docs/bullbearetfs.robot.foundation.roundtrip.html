@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module bullbearetfs.robot.foundation.roundtrip</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="bullbearetfs.html"><font color="#ffffff">bullbearetfs</font></a>.<a href="bullbearetfs.robot.html"><font color="#ffffff">robot</font></a>.<a href="bullbearetfs.robot.foundation.html"><font color="#ffffff">foundation</font></a>.roundtrip</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/henrimeli/Desktop/invest2020/bullbearetfs/robot/foundation/roundtrip.py">/Users/henrimeli/Desktop/invest2020/bullbearetfs/robot/foundation/roundtrip.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="bullbearetfs.robot.foundation.roundtrip.html#RoundTrip">RoundTrip</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RoundTrip">class <strong>RoundTrip</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#RoundTrip">RoundTrip</a>(robot,&nbsp;root_id)<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="RoundTrip-__init__"><strong>__init__</strong></a>(self, robot, root_id)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-completedLast24Hours"><strong>completedLast24Hours</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-completedToday"><strong>completedToday</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-containedInRoundtrips"><strong>containedInRoundtrips</strong></a>(self, roundtrip_list=None)</dt></dl>
+
+<dl><dt><a name="RoundTrip-equalsRoundtrip"><strong>equalsRoundtrip</strong></a>(self, candidate=None)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getAbsoluteBullBearCurrentValueSpread"><strong>getAbsoluteBullBearCurrentValueSpread</strong></a>(self)</dt><dd><tt>#The&nbsp;inner&nbsp;spread&nbsp;represents&nbsp;the&nbsp;differennce&nbsp;within&nbsp;the&nbsp;Roundtrip&nbsp;of&nbsp;the&nbsp;Bull&nbsp;vs&nbsp;Bear&nbsp;value&nbsp;based&nbsp;on&nbsp;current&nbsp;price&nbsp;<br>
+#Shouldn't&nbsp;be&nbsp;large&nbsp;if&nbsp;the&nbsp;Asset&nbsp;Composition&nbsp;is&nbsp;around&nbsp;50%&nbsp;for&nbsp;each&nbsp;side.&nbsp;But&nbsp;will&nbsp;get&nbsp;higher&nbsp;within&nbsp;the&nbsp;Batcham&nbsp;<br>
+#Strategy.&nbsp;Or&nbsp;if&nbsp;we&nbsp;decide&nbsp;to&nbsp;to&nbsp;use&nbsp;Asset&nbsp;Composition&nbsp;different&nbsp;for&nbsp;example&nbsp;60/40.<br>
+#(if&nbsp;market&nbsp;has&nbsp;a&nbsp;bullish&nbsp;or&nbsp;bearish&nbsp;bias&nbsp;based&nbsp;on&nbsp;sentiment)<br>
+#&nbsp;(Bull&nbsp;Current&nbsp;Price&nbsp;-&nbsp;Bull&nbsp;Cost&nbsp;Basis)&nbsp;+&nbsp;(&nbsp;Bear&nbsp;Current&nbsp;Price&nbsp;-&nbsp;Bear&nbsp;Cost&nbsp;Basis)</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getAcquisitionDate"><strong>getAcquisitionDate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getAnnualizedProfitPercentage"><strong>getAnnualizedProfitPercentage</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBasicReportData1"><strong>getBasicReportData1</strong></a>(self)</dt><dd><tt>#&nbsp;Return&nbsp;data&nbsp;without&nbsp;sale&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getBasicReportData2"><strong>getBasicReportData2</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearBreakevenPriceByComponentProfitRatio"><strong>getBearBreakevenPriceByComponentProfitRatio</strong></a>(self, component_percent)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearBreakevenPriceByTotalProfit"><strong>getBearBreakevenPriceByTotalProfit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearBreakevenPricePercentByComponentProfitRatio"><strong>getBearBreakevenPricePercentByComponentProfitRatio</strong></a>(self, component_percent)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearBreakevenPricePercentByTotalProfit"><strong>getBearBreakevenPricePercentByTotalProfit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearBuyDate"><strong>getBearBuyDate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearBuyOrderClientID"><strong>getBearBuyOrderClientID</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearBuyPrice"><strong>getBearBuyPrice</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearCostBasis"><strong>getBearCostBasis</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearCostBasisRatioDelta"><strong>getBearCostBasisRatioDelta</strong></a>(self)</dt><dd><tt>#&nbsp;Change&nbsp;in&nbsp;Ratio&nbsp;from&nbsp;the&nbsp;time&nbsp;of&nbsp;purchase&nbsp;to&nbsp;today</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getBearCurrentPrice"><strong>getBearCurrentPrice</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearCurrentValue"><strong>getBearCurrentValue</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearPriceSpread"><strong>getBearPriceSpread</strong></a>(self, average=None)</dt><dd><tt>#The&nbsp;price&nbsp;spread&nbsp;is&nbsp;the&nbsp;difference&nbsp;between&nbsp;the&nbsp;purchase&nbsp;price&nbsp;and&nbsp;the&nbsp;current&nbsp;average&nbsp;price&nbsp;on&nbsp;the&nbsp;Assembly&nbsp;Line.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getBearPrint1Data"><strong>getBearPrint1Data</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearPrint2Data"><strong>getBearPrint2Data</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearQuantity"><strong>getBearQuantity</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearRealizedValue"><strong>getBearRealizedValue</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearSellDate"><strong>getBearSellDate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearSellOrderClientID"><strong>getBearSellOrderClientID</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearSellPrice"><strong>getBearSellPrice</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearSymbol"><strong>getBearSymbol</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBearTransitionProfitTarget"><strong>getBearTransitionProfitTarget</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullBearCostBasisDelta"><strong>getBullBearCostBasisDelta</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullBearCostBasisSpread"><strong>getBullBearCostBasisSpread</strong></a>(self)</dt><dd><tt>#The&nbsp;spread&nbsp;represents&nbsp;the&nbsp;differennce&nbsp;within&nbsp;the&nbsp;Roundtrip&nbsp;of&nbsp;the&nbsp;Bull&nbsp;vs&nbsp;Bear&nbsp;value&nbsp;based&nbsp;on&nbsp;cost&nbsp;basis&nbsp;<br>
+#Shouldn't&nbsp;be&nbsp;large&nbsp;if&nbsp;Asset&nbsp;Composition&nbsp;is&nbsp;around&nbsp;50%.&nbsp;But&nbsp;could&nbsp;get&nbsp;higher&nbsp;is&nbsp;there&nbsp;is&nbsp;a&nbsp;composition&nbsp;discrepency.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getBullBearCurrentValueDelta"><strong>getBullBearCurrentValueDelta</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullBearCurrentValueSpread"><strong>getBullBearCurrentValueSpread</strong></a>(self)</dt><dd><tt>#Same&nbsp;calculation&nbsp;as&nbsp;above,&nbsp;but&nbsp;doesn't&nbsp;calculate&nbsp;use&nbsp;Absolute&nbsp;Value.&nbsp;Can&nbsp;be&nbsp;Negative.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getBullBreakevenPriceByComponentProfitRatio"><strong>getBullBreakevenPriceByComponentProfitRatio</strong></a>(self, component_percent)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullBreakevenPriceByTotalProfit"><strong>getBullBreakevenPriceByTotalProfit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullBreakevenPricePercentByComponentProfitRatio"><strong>getBullBreakevenPricePercentByComponentProfitRatio</strong></a>(self, component_percent)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullBreakevenPricePercentByTotalProfit"><strong>getBullBreakevenPricePercentByTotalProfit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullBuyDate"><strong>getBullBuyDate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullBuyOrderClientID"><strong>getBullBuyOrderClientID</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullBuyPrice"><strong>getBullBuyPrice</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullCostBasis"><strong>getBullCostBasis</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullCostBasisRatioDelta"><strong>getBullCostBasisRatioDelta</strong></a>(self)</dt><dd><tt>#&nbsp;Change&nbsp;in&nbsp;Ratio&nbsp;from&nbsp;the&nbsp;time&nbsp;of&nbsp;purchase&nbsp;to&nbsp;today</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getBullCurrentPrice"><strong>getBullCurrentPrice</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullCurrentValue"><strong>getBullCurrentValue</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullPriceSpread"><strong>getBullPriceSpread</strong></a>(self, average=None)</dt><dd><tt>#The&nbsp;price&nbsp;spread&nbsp;is&nbsp;the&nbsp;difference&nbsp;between&nbsp;the&nbsp;purchase&nbsp;price&nbsp;and&nbsp;the&nbsp;current&nbsp;average&nbsp;price&nbsp;on&nbsp;the&nbsp;Assembly&nbsp;Line.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getBullPrint1Data"><strong>getBullPrint1Data</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullPrint2Data"><strong>getBullPrint2Data</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullQuantity"><strong>getBullQuantity</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullRealizedValue"><strong>getBullRealizedValue</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullSellDate"><strong>getBullSellDate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullSellOrderClientID"><strong>getBullSellOrderClientID</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullSellPrice"><strong>getBullSellPrice</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullSymbol"><strong>getBullSymbol</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getBullTransitionProfitTarget"><strong>getBullTransitionProfitTarget</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getCompletionDate"><strong>getCompletionDate</strong></a>(self)</dt><dd><tt>#The&nbsp;day&nbsp;when&nbsp;it&nbsp;as&nbsp;moved&nbsp;to&nbsp;Completion&nbsp;Stage</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getCompletionProfitTarget"><strong>getCompletionProfitTarget</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getCostBasisBearRatio"><strong>getCostBasisBearRatio</strong></a>(self)</dt><dd><tt>#Of&nbsp;all&nbsp;the&nbsp;money&nbsp;speant&nbsp;to&nbsp;acquire&nbsp;Bull&nbsp;+&nbsp;Bear,&nbsp;what&nbsp;percentage&nbsp;went&nbsp;to&nbsp;Bear?<br>
+#Ideally,&nbsp;we&nbsp;should&nbsp;be&nbsp;close&nbsp;to&nbsp;50%</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getCostBasisBullRatio"><strong>getCostBasisBullRatio</strong></a>(self)</dt><dd><tt>#Of&nbsp;all&nbsp;the&nbsp;money&nbsp;spent&nbsp;to&nbsp;acquire&nbsp;Bull&nbsp;+&nbsp;Bear,&nbsp;what&nbsp;percentage&nbsp;went&nbsp;to&nbsp;Bull?<br>
+#Ideally,&nbsp;we&nbsp;should&nbsp;be&nbsp;close&nbsp;to&nbsp;50%</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getCurrentTimestamp"><strong>getCurrentTimestamp</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getCurrentValueBasedBearRatio"><strong>getCurrentValueBasedBearRatio</strong></a>(self)</dt><dd><tt>#Of&nbsp;the&nbsp;total&nbsp;value&nbsp;of&nbsp;the&nbsp;asset,&nbsp;what&nbsp;percentage&nbsp;does&nbsp;the&nbsp;Bull&nbsp;contribute</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getCurrentValueBasedBullRatio"><strong>getCurrentValueBasedBullRatio</strong></a>(self)</dt><dd><tt>#Of&nbsp;the&nbsp;total&nbsp;value&nbsp;of&nbsp;the&nbsp;asset,&nbsp;what&nbsp;percentage&nbsp;does&nbsp;the&nbsp;Bear&nbsp;contribute</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getDetailedInformation"><strong>getDetailedInformation</strong></a>(self, bull_info='', bear_info='')</dt></dl>
+
+<dl><dt><a name="RoundTrip-getDurationInStable"><strong>getDurationInStable</strong></a>(self)</dt><dd><tt>#&nbsp;How&nbsp;long&nbsp;has&nbsp;this&nbsp;Roundtrip&nbsp;been&nbsp;in&nbsp;Transition&nbsp;Stage&nbsp;<br>
+#&nbsp;Current&nbsp;State&nbsp;is&nbsp;still&nbsp;in-transition.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getDurationInTransition"><strong>getDurationInTransition</strong></a>(self)</dt><dd><tt>#&nbsp;How&nbsp;long&nbsp;has&nbsp;this&nbsp;Roundtrip&nbsp;been&nbsp;in&nbsp;Transition&nbsp;Stage&nbsp;<br>
+#&nbsp;Current&nbsp;State&nbsp;is&nbsp;still&nbsp;in-transition.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getDurationSinceBearSold"><strong>getDurationSinceBearSold</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getDurationSinceBullSold"><strong>getDurationSinceBullSold</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getInStableDate"><strong>getInStableDate</strong></a>(self)</dt><dd><tt>#&nbsp;The&nbsp;day&nbsp;when&nbsp;it&nbsp;was&nbsp;bought.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getInTransitionDate"><strong>getInTransitionDate</strong></a>(self)</dt><dd><tt>#The&nbsp;day&nbsp;when&nbsp;it&nbsp;as&nbsp;moved&nbsp;to&nbsp;InTransition&nbsp;Stage</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getIsBullishOrBearishTransition"><strong>getIsBullishOrBearishTransition</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getProfitPercentage"><strong>getProfitPercentage</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getProfitTargetPerRoundtrip"><strong>getProfitTargetPerRoundtrip</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getRealizedAndSettled"><strong>getRealizedAndSettled</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getRootOrderClientID"><strong>getRootOrderClientID</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getRootOrderClientIDNoInternal"><strong>getRootOrderClientIDNoInternal</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getRoundtripAge"><strong>getRoundtripAge</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getRoundtripCostBasis"><strong>getRoundtripCostBasis</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getRoundtripDataRatio"><strong>getRoundtripDataRatio</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getRoundtripInTransitionRealizedProfit"><strong>getRoundtripInTransitionRealizedProfit</strong></a>(self, non_digits=True)</dt><dd><tt>#&nbsp;When&nbsp;in&nbsp;Transition,&nbsp;it&nbsp;means&nbsp;one&nbsp;side&nbsp;has&nbsp;sold.<br>
+#&nbsp;How&nbsp;much&nbsp;money&nbsp;(PROFIT)&nbsp;did&nbsp;we&nbsp;cash&nbsp;in&nbsp;for&nbsp;that&nbsp;sale?</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getRoundtripRealizedProfit"><strong>getRoundtripRealizedProfit</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getRoundtripRealizedValue"><strong>getRoundtripRealizedValue</strong></a>(self, non_digits=True)</dt><dd><tt>#Calculates&nbsp;what&nbsp;has&nbsp;been&nbsp;sold&nbsp;either&nbsp;way&nbsp;and&nbsp;at&nbsp;any&nbsp;stage.&nbsp;getCompletionCandidatesData</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getRoundtripUnrealizedValue"><strong>getRoundtripUnrealizedValue</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getStableBearValue"><strong>getStableBearValue</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getStableBullValue"><strong>getStableBullValue</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getStableTotalValue"><strong>getStableTotalValue</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getTheBear"><strong>getTheBear</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getTheBull"><strong>getTheBull</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getTimeSinceCompletion"><strong>getTimeSinceCompletion</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getTimeSincePurchase"><strong>getTimeSincePurchase</strong></a>(self)</dt><dd><tt>#&nbsp;How&nbsp;long&nbsp;has&nbsp;this&nbsp;been&nbsp;since&nbsp;it&nbsp;was&nbsp;purchased&nbsp;(bought).&nbsp;The&nbsp;response&nbsp;is&nbsp;in&nbsp;minutes.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getTimeSpentActive"><strong>getTimeSpentActive</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getTimeSpentInStable"><strong>getTimeSpentInStable</strong></a>(self)</dt><dd><tt>#How&nbsp;long&nbsp;(duration)&nbsp;was&nbsp;the&nbsp;asset&nbsp;in&nbsp;Stable.&nbsp;It&nbsp;is&nbsp;no&nbsp;longer&nbsp;in&nbsp;Stable</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getTimeSpentInTransition"><strong>getTimeSpentInTransition</strong></a>(self)</dt><dd><tt>#How&nbsp;long&nbsp;(duration)&nbsp;was&nbsp;the&nbsp;asset&nbsp;in&nbsp;Transition.&nbsp;It&nbsp;is&nbsp;no&nbsp;longer&nbsp;in&nbsp;Transition</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-getTransitionalDeltaValue"><strong>getTransitionalDeltaValue</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getTransitionalRealized"><strong>getTransitionalRealized</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getTransitionalTotalValue"><strong>getTransitionalTotalValue</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getTransitionalUnRealized"><strong>getTransitionalUnRealized</strong></a>(self, non_digits=True)</dt></dl>
+
+<dl><dt><a name="RoundTrip-getWinningOrderClientIDRoot"><strong>getWinningOrderClientIDRoot</strong></a>(self)</dt><dd><tt>#TODO:&nbsp;NO&nbsp;UNITTEST&nbsp;FOR&nbsp;THIS</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-hasExactlyTwoEntries"><strong>hasExactlyTwoEntries</strong></a>(self)</dt><dd><tt>#Ensure&nbsp;there&nbsp;is&nbsp;exactly&nbsp;2&nbsp;entries&nbsp;in&nbsp;the&nbsp;table&nbsp;with&nbsp;the&nbsp;same&nbsp;order_client_ID_Root</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isActive"><strong>isActive</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isAvailableForTrading"><strong>isAvailableForTrading</strong></a>(self)</dt><dd><tt>#Between&nbsp;MinHoldTime&nbsp;and&nbsp;MaxHoldTime</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isBearPriceAboveBreakevenByComponentProfitRatio"><strong>isBearPriceAboveBreakevenByComponentProfitRatio</strong></a>(self, component_percent)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBearPriceAboveBreakevenByTotalProfit"><strong>isBearPriceAboveBreakevenByTotalProfit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBearTransitionalCandidate"><strong>isBearTransitionalCandidate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBearWithinCostBasisByPercentageOfTotalProfit"><strong>isBearWithinCostBasisByPercentageOfTotalProfit</strong></a>(self)</dt><dd><tt>#isBearWithinSharePriceByPercentageOfProfit</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isBearWithinCostBasisByTotalProfit"><strong>isBearWithinCostBasisByTotalProfit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBearWithinCostBasisByWeightedTotalPercentageOfProfit"><strong>isBearWithinCostBasisByWeightedTotalPercentageOfProfit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBearWithinCostBasisByWeightedTotalProfit"><strong>isBearWithinCostBasisByWeightedTotalProfit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBearWithinPriceRangeByPercentageOfProfitRatio"><strong>isBearWithinPriceRangeByPercentageOfProfitRatio</strong></a>(self, profit_percent)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBearWithinSharePriceByNumber"><strong>isBearWithinSharePriceByNumber</strong></a>(self, number)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBearWithinSharePriceByPercentage"><strong>isBearWithinSharePriceByPercentage</strong></a>(self, percentage)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBullPriceAboveBreakevenByComponentProfitRatio"><strong>isBullPriceAboveBreakevenByComponentProfitRatio</strong></a>(self, component_percent)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBullPriceAboveBreakevenByTotalProfit"><strong>isBullPriceAboveBreakevenByTotalProfit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBullTransitionalCandidate"><strong>isBullTransitionalCandidate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isBullWithinCostBasisByPercentageOfTotalProfit"><strong>isBullWithinCostBasisByPercentageOfTotalProfit</strong></a>(self)</dt><dd><tt>#&nbsp;buy_price&nbsp;=&nbsp;$100,&nbsp;quantity=10.&nbsp;Bull&nbsp;ONLY&nbsp;Cost&nbsp;Basis&nbsp;=&nbsp;$1,000.&nbsp;<br>
+#&nbsp;current_price&nbsp;=&nbsp;$102&nbsp;==&gt;&nbsp;unrealized_profit&nbsp;=&nbsp;$20&nbsp;of&nbsp;1,000&nbsp;invested&nbsp;=&nbsp;2/100&nbsp;=&nbsp;2%<br>
+#&nbsp;if&nbsp;profit_target_per_roundtrip&nbsp;==&nbsp;$10&nbsp;or&nbsp;10/1000&nbsp;=&nbsp;1%&nbsp;of&nbsp;investment.,&nbsp;return&nbsp;False&nbsp;[1%&nbsp;&lt;&nbsp;2%&nbsp;].&nbsp;<br>
+#&nbsp;if&nbsp;profit_target_per_roundtrip&nbsp;==&nbsp;$30&nbsp;or&nbsp;30/1000&nbsp;=&nbsp;3%&nbsp;of&nbsp;investment..,&nbsp;return&nbsp;True&nbsp;[3%&nbsp;&gt;&nbsp;2%]</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isBullWithinCostBasisByTotalProfit"><strong>isBullWithinCostBasisByTotalProfit</strong></a>(self)</dt><dd><tt>#&nbsp;buy_price&nbsp;=&nbsp;$100,&nbsp;quantity=10.&nbsp;Bull&nbsp;ONLY&nbsp;Cost&nbsp;Basis&nbsp;=&nbsp;$1,000.&nbsp;current_price&nbsp;=&nbsp;$102&nbsp;==&gt;&nbsp;unrealized_profit&nbsp;=&nbsp;$20&nbsp;=&nbsp;$1,020&nbsp;-&nbsp;$1,000<br>
+#&nbsp;if&nbsp;profit_target_per_roundtrip&nbsp;==&nbsp;$15,&nbsp;return&nbsp;False&nbsp;[$15&nbsp;&lt;&nbsp;$20&nbsp;].&nbsp;<br>
+#&nbsp;if&nbsp;profit_target_per_roundtrip&nbsp;==&nbsp;$30,&nbsp;return&nbsp;True&nbsp;&nbsp;[$30&nbsp;&gt;&nbsp;$20]</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isBullWithinCostBasisByWeightedTotalPercentageOfProfit"><strong>isBullWithinCostBasisByWeightedTotalPercentageOfProfit</strong></a>(self)</dt><dd><tt>#Same&nbsp;as&nbsp;above,&nbsp;except&nbsp;I&nbsp;use&nbsp;the&nbsp;weightedProfitTargetperroundtrip()<br>
+#&nbsp;BullComposition()&nbsp;is&nbsp;important.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isBullWithinCostBasisByWeightedTotalProfit"><strong>isBullWithinCostBasisByWeightedTotalProfit</strong></a>(self)</dt><dd><tt>#&nbsp;buy_price&nbsp;=&nbsp;$100,&nbsp;quantity=10.&nbsp;Cost&nbsp;Basis&nbsp;=&nbsp;$1,000.&nbsp;Bull&nbsp;Composition&nbsp;=&nbsp;50%<br>
+#&nbsp;current_price&nbsp;=&nbsp;$101&nbsp;==&gt;&nbsp;unrealized_profit&nbsp;=&nbsp;$10&nbsp;=&nbsp;$1,020&nbsp;-&nbsp;$1,000<br>
+#&nbsp;if&nbsp;profit_target_per_roundtrip&nbsp;==&nbsp;$10,&nbsp;weighted&nbsp;profit&nbsp;target&nbsp;=&nbsp;$10&nbsp;*&nbsp;50%&nbsp;=&nbsp;$7.5&nbsp;return&nbsp;False&nbsp;[$7.5&nbsp;&lt;&nbsp;$10&nbsp;].&nbsp;<br>
+#&nbsp;if&nbsp;profit_target_per_roundtrip&nbsp;==&nbsp;$30,&nbsp;weighted&nbsp;profit&nbsp;target&nbsp;=&nbsp;$30&nbsp;*&nbsp;50%&nbsp;=&nbsp;$15&nbsp;return&nbsp;True&nbsp;&nbsp;&nbsp;[$15&nbsp;&gt;&nbsp;$10]</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isBullWithinPriceRangeByPercentageOfProfitRatio"><strong>isBullWithinPriceRangeByPercentageOfProfitRatio</strong></a>(self, profit_percent)</dt><dd><tt>#To&nbsp;be&nbsp;used&nbsp;with&nbsp;inTranstionTargetRatio()&nbsp;and&nbsp;CompletionTargetRatio()</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isBullWithinSharePriceByNumber"><strong>isBullWithinSharePriceByNumber</strong></a>(self, number)</dt><dd><tt>#&nbsp;buy_price&nbsp;=&nbsp;$120,&nbsp;current_price&nbsp;=&nbsp;$122&nbsp;==&gt;&nbsp;price_delta&nbsp;=&nbsp;$2<br>
+#&nbsp;if&nbsp;number&nbsp;==&nbsp;1,&nbsp;return&nbsp;False.&nbsp;if&nbsp;number&nbsp;==&nbsp;3,&nbsp;return&nbsp;True</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isBullWithinSharePriceByPercentage"><strong>isBullWithinSharePriceByPercentage</strong></a>(self, percentage)</dt><dd><tt>#&nbsp;buy_price&nbsp;=&nbsp;$100,&nbsp;current_price&nbsp;=&nbsp;$102&nbsp;==&gt;&nbsp;price_delta_percent&nbsp;=&nbsp;2%&nbsp;=&nbsp;2/100<br>
+#&nbsp;if&nbsp;percent&nbsp;==&nbsp;1%,&nbsp;return&nbsp;False.&nbsp;if&nbsp;percent&nbsp;==&nbsp;3%,&nbsp;return&nbsp;True</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isCompleted"><strong>isCompleted</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isCompletionCandidate"><strong>isCompletionCandidate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isInBearishTransition"><strong>isInBearishTransition</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isInBearishWinningTransition"><strong>isInBearishWinningTransition</strong></a>(self, transition_id)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isInBullishTransition"><strong>isInBullishTransition</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isInBullishWinningTransition"><strong>isInBullishWinningTransition</strong></a>(self, transition_id)</dt><dd><tt>##########&nbsp;Two&nbsp;functions&nbsp;below&nbsp;are&nbsp;only&nbsp;used&nbsp;for&nbsp;Babadjou&nbsp;Strategy&nbsp;#############</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isInRegression"><strong>isInRegression</strong></a>(self)</dt><dd><tt>#duration:</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isInRegressionLevelOrange"><strong>isInRegressionLevelOrange</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isInRegressionLevelRed"><strong>isInRegressionLevelRed</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isInRegressionLevelYellow"><strong>isInRegressionLevelYellow</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isInTransition"><strong>isInTransition</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isPastMaximumHoldTime"><strong>isPastMaximumHoldTime</strong></a>(self)</dt><dd><tt>#By&nbsp;default,&nbsp;the&nbsp;maximumHoldTime&nbsp;is&nbsp;14.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isPastMinimumHoldTime"><strong>isPastMinimumHoldTime</strong></a>(self)</dt><dd><tt>##########&nbsp;Time/Age&nbsp;and&nbsp;State&nbsp;functions&nbsp;#############<br>
+#By&nbsp;default,&nbsp;the&nbsp;minimumHoldTime&nbsp;is&nbsp;0.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isRoundtriProfitBelowExpectations"><strong>isRoundtriProfitBelowExpectations</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isRoundtripProfitAboveExpectations"><strong>isRoundtripProfitAboveExpectations</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isRoundtripProfitNegative"><strong>isRoundtripProfitNegative</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isRoundtripProfitPositive"><strong>isRoundtripProfitPositive</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isStable"><strong>isStable</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isTransitionalCandidate"><strong>isTransitionalCandidate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>#&nbsp;This&nbsp;definition&nbsp;is&nbsp;wrong.&nbsp;Don't&nbsp;use&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-isWithinTimeRangeByNumber"><strong>isWithinTimeRangeByNumber</strong></a>(self, time_interval=0)</dt></dl>
+
+<dl><dt><a name="RoundTrip-printProfitAndLosses"><strong>printProfitAndLosses</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RoundTrip-sellTheBear"><strong>sellTheBear</strong></a>(self, transition_root_id=None)</dt><dd><tt>#&nbsp;&nbsp;Need&nbsp;to&nbsp;be&nbsp;careful.&nbsp;<br>
+#&nbsp;&nbsp;Need&nbsp;to&nbsp;generate&nbsp;the&nbsp;sell&nbsp;order&nbsp;and&nbsp;send&nbsp;it&nbsp;to&nbsp;broker.&nbsp;For&nbsp;that,&nbsp;i&nbsp;need&nbsp;a&nbsp;sell_order_client_id<br>
+#&nbsp;&nbsp;Need&nbsp;the&nbsp;buy_order_id&nbsp;to&nbsp;update&nbsp;the&nbsp;database.&nbsp;Maybe&nbsp;getBull()&nbsp;and&nbsp;getBear()&nbsp;can&nbsp;do&nbsp;the&nbsp;trick&nbsp;for&nbsp;me.</tt></dd></dl>
+
+<dl><dt><a name="RoundTrip-sellTheBull"><strong>sellTheBull</strong></a>(self, transition_root_id=None)</dt></dl>
+
+<dl><dt><a name="RoundTrip-sellTheUnrealized"><strong>sellTheUnrealized</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>logger</strong> = &lt;Logger bullbearetfs.robot.foundation.roundtrip (WARNING)&gt;</td></tr></table>
+</body></html>

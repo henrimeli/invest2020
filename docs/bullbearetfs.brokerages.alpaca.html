@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module bullbearetfs.brokerages.alpaca</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="bullbearetfs.html"><font color="#ffffff">bullbearetfs</font></a>.<a href="bullbearetfs.brokerages.html"><font color="#ffffff">brokerages</font></a>.alpaca</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/henrimeli/Desktop/invest2020/bullbearetfs/brokerages/alpaca.py">/Users/henrimeli/Desktop/invest2020/bullbearetfs/brokerages/alpaca.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="asyncio.html">asyncio</a><br>
+<a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="json.html">json</a><br>
+<a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+<a href="alpaca_trade_api.html">alpaca_trade_api</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="bullbearetfs.brokerages.alpaca.html#AccountInformation">AccountInformation</a>
+</font></dt><dt><font face="helvetica, arial"><a href="bullbearetfs.brokerages.alpaca.html#AlpacaLastTrade">AlpacaLastTrade</a>
+</font></dt><dt><font face="helvetica, arial"><a href="bullbearetfs.brokerages.alpaca.html#AlpacaMarketClock">AlpacaMarketClock</a>
+</font></dt><dt><font face="helvetica, arial"><a href="bullbearetfs.brokerages.alpaca.html#AlpacaPolygon">AlpacaPolygon</a>
+</font></dt><dt><font face="helvetica, arial"><a href="bullbearetfs.brokerages.alpaca.html#BullBearBuyOrder">BullBearBuyOrder</a>
+</font></dt><dt><font face="helvetica, arial"><a href="bullbearetfs.brokerages.alpaca.html#OpenPositions">OpenPositions</a>
+</font></dt><dt><font face="helvetica, arial"><a href="bullbearetfs.brokerages.alpaca.html#QueryOrders">QueryOrders</a>
+</font></dt><dt><font face="helvetica, arial"><a href="bullbearetfs.brokerages.alpaca.html#SellOrder">SellOrder</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AccountInformation">class <strong>AccountInformation</strong></a>(<a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;Base&nbsp;class&nbsp;for&nbsp;all&nbsp;requests&nbsp;to&nbsp;Alpaca.&nbsp;<br>
+This&nbsp;class&nbsp;understands&nbsp;how&nbsp;to&nbsp;work&nbsp;with&nbsp;all&nbsp;Alpaca&nbsp;requests.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AccountInformation">AccountInformation</a></dd>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AccountInformation-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AccountInformation-accountIsBlockedByBrokerage"><strong>accountIsBlockedByBrokerage</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AccountInformation-getAccountStatus"><strong>getAccountStatus</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AccountInformation-getBuyingPower"><strong>getBuyingPower</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AccountInformation-isActive"><strong>isActive</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AccountInformation-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><a name="AccountInformation-getAPI"><strong>getAPI</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;valid&nbsp;tradeapi.<br>
+Ensures&nbsp;that&nbsp;a&nbsp;valid&nbsp;connection&nbsp;has&nbsp;been&nbsp;established.<br>
+Invalid&nbsp;connections&nbsp;are&nbsp;invalidated&nbsp;safely.</tt></dd></dl>
+
+<dl><dt><a name="AccountInformation-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AccountInformation-isLiveAccount"><strong>isLiveAccount</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AccountInformation-isPaperAccount"><strong>isPaperAccount</strong></a>(self)</dt><dd><tt>Checks&nbsp;the&nbsp;type&nbsp;of&nbsp;account&nbsp;connected&nbsp;to.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AlpacaAPIBase">class <strong>AlpacaAPIBase</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;Base&nbsp;class&nbsp;for&nbsp;all&nbsp;requests&nbsp;to&nbsp;Alpaca.&nbsp;<br>
+This&nbsp;class&nbsp;understands&nbsp;how&nbsp;to&nbsp;work&nbsp;with&nbsp;all&nbsp;Alpaca&nbsp;requests.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="AlpacaAPIBase-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaAPIBase-getAPI"><strong>getAPI</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;valid&nbsp;tradeapi.<br>
+Ensures&nbsp;that&nbsp;a&nbsp;valid&nbsp;connection&nbsp;has&nbsp;been&nbsp;established.<br>
+Invalid&nbsp;connections&nbsp;are&nbsp;invalidated&nbsp;safely.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaAPIBase-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaAPIBase-isLiveAccount"><strong>isLiveAccount</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaAPIBase-isPaperAccount"><strong>isPaperAccount</strong></a>(self)</dt><dd><tt>Checks&nbsp;the&nbsp;type&nbsp;of&nbsp;account&nbsp;connected&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaAPIBase-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AlpacaLastTrade">class <strong>AlpacaLastTrade</strong></a>(<a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;Base&nbsp;class&nbsp;for&nbsp;all&nbsp;requests&nbsp;to&nbsp;Alpaca.&nbsp;<br>
+This&nbsp;class&nbsp;understands&nbsp;how&nbsp;to&nbsp;work&nbsp;with&nbsp;all&nbsp;Alpaca&nbsp;requests.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaLastTrade">AlpacaLastTrade</a></dd>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AlpacaLastTrade-getLastQuote"><strong>getLastQuote</strong></a>(self, symbol)</dt></dl>
+
+<dl><dt><a name="AlpacaLastTrade-getLastTrade"><strong>getLastTrade</strong></a>(self, symbol)</dt></dl>
+
+<hr>
+Methods inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><a name="AlpacaLastTrade-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaLastTrade-getAPI"><strong>getAPI</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;valid&nbsp;tradeapi.<br>
+Ensures&nbsp;that&nbsp;a&nbsp;valid&nbsp;connection&nbsp;has&nbsp;been&nbsp;established.<br>
+Invalid&nbsp;connections&nbsp;are&nbsp;invalidated&nbsp;safely.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaLastTrade-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaLastTrade-isLiveAccount"><strong>isLiveAccount</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaLastTrade-isPaperAccount"><strong>isPaperAccount</strong></a>(self)</dt><dd><tt>Checks&nbsp;the&nbsp;type&nbsp;of&nbsp;account&nbsp;connected&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaLastTrade-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AlpacaMarketClock">class <strong>AlpacaMarketClock</strong></a>(<a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;Base&nbsp;class&nbsp;for&nbsp;all&nbsp;requests&nbsp;to&nbsp;Alpaca.&nbsp;<br>
+This&nbsp;class&nbsp;understands&nbsp;how&nbsp;to&nbsp;work&nbsp;with&nbsp;all&nbsp;Alpaca&nbsp;requests.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaMarketClock">AlpacaMarketClock</a></dd>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AlpacaMarketClock-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaMarketClock-getTradingCalendar"><strong>getTradingCalendar</strong></a>(self, start_date=None, end_date=None)</dt></dl>
+
+<dl><dt><a name="AlpacaMarketClock-isOpen"><strong>isOpen</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><a name="AlpacaMarketClock-getAPI"><strong>getAPI</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;valid&nbsp;tradeapi.<br>
+Ensures&nbsp;that&nbsp;a&nbsp;valid&nbsp;connection&nbsp;has&nbsp;been&nbsp;established.<br>
+Invalid&nbsp;connections&nbsp;are&nbsp;invalidated&nbsp;safely.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaMarketClock-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaMarketClock-isLiveAccount"><strong>isLiveAccount</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaMarketClock-isPaperAccount"><strong>isPaperAccount</strong></a>(self)</dt><dd><tt>Checks&nbsp;the&nbsp;type&nbsp;of&nbsp;account&nbsp;connected&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaMarketClock-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AlpacaPolygon">class <strong>AlpacaPolygon</strong></a>(<a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#AlpacaPolygon">AlpacaPolygon</a>(payload=None)<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;Base&nbsp;class&nbsp;for&nbsp;all&nbsp;requests&nbsp;to&nbsp;Alpaca.&nbsp;<br>
+This&nbsp;class&nbsp;understands&nbsp;how&nbsp;to&nbsp;work&nbsp;with&nbsp;all&nbsp;Alpaca&nbsp;requests.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaPolygon">AlpacaPolygon</a></dd>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AlpacaPolygon-__init__"><strong>__init__</strong></a>(self, payload=None)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaPolygon-historicalData"><strong>historicalData</strong></a>(self, symbol)</dt></dl>
+
+<dl><dt><a name="AlpacaPolygon-listAllTickers"><strong>listAllTickers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AlpacaPolygon-quoteOfCloseDay"><strong>quoteOfCloseDay</strong></a>(self, symbol, day='2020-01-02')</dt></dl>
+
+<dl><dt><a name="AlpacaPolygon-quoteOfOpenDay"><strong>quoteOfOpenDay</strong></a>(self, symbol, day='2020-01-02')</dt></dl>
+
+<dl><dt><a name="AlpacaPolygon-quotesToSave"><strong>quotesToSave</strong></a>(self, symbol, trading_unit=None)</dt></dl>
+
+<hr>
+Methods inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><a name="AlpacaPolygon-getAPI"><strong>getAPI</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;valid&nbsp;tradeapi.<br>
+Ensures&nbsp;that&nbsp;a&nbsp;valid&nbsp;connection&nbsp;has&nbsp;been&nbsp;established.<br>
+Invalid&nbsp;connections&nbsp;are&nbsp;invalidated&nbsp;safely.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaPolygon-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaPolygon-isLiveAccount"><strong>isLiveAccount</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaPolygon-isPaperAccount"><strong>isPaperAccount</strong></a>(self)</dt><dd><tt>Checks&nbsp;the&nbsp;type&nbsp;of&nbsp;account&nbsp;connected&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="AlpacaPolygon-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BullBearBuyOrder">class <strong>BullBearBuyOrder</strong></a>(<a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;Base&nbsp;class&nbsp;for&nbsp;all&nbsp;requests&nbsp;to&nbsp;Alpaca.&nbsp;<br>
+This&nbsp;class&nbsp;understands&nbsp;how&nbsp;to&nbsp;work&nbsp;with&nbsp;all&nbsp;Alpaca&nbsp;requests.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#BullBearBuyOrder">BullBearBuyOrder</a></dd>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BullBearBuyOrder-submitLimit"><strong>submitLimit</strong></a>(self, payload)</dt></dl>
+
+<dl><dt><a name="BullBearBuyOrder-submitMarket"><strong>submitMarket</strong></a>(self, payload)</dt></dl>
+
+<hr>
+Methods inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><a name="BullBearBuyOrder-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="BullBearBuyOrder-getAPI"><strong>getAPI</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;valid&nbsp;tradeapi.<br>
+Ensures&nbsp;that&nbsp;a&nbsp;valid&nbsp;connection&nbsp;has&nbsp;been&nbsp;established.<br>
+Invalid&nbsp;connections&nbsp;are&nbsp;invalidated&nbsp;safely.</tt></dd></dl>
+
+<dl><dt><a name="BullBearBuyOrder-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="BullBearBuyOrder-isLiveAccount"><strong>isLiveAccount</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="BullBearBuyOrder-isPaperAccount"><strong>isPaperAccount</strong></a>(self)</dt><dd><tt>Checks&nbsp;the&nbsp;type&nbsp;of&nbsp;account&nbsp;connected&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="BullBearBuyOrder-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="OpenPositions">class <strong>OpenPositions</strong></a>(<a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;Base&nbsp;class&nbsp;for&nbsp;all&nbsp;requests&nbsp;to&nbsp;Alpaca.&nbsp;<br>
+This&nbsp;class&nbsp;understands&nbsp;how&nbsp;to&nbsp;work&nbsp;with&nbsp;all&nbsp;Alpaca&nbsp;requests.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#OpenPositions">OpenPositions</a></dd>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="OpenPositions-getPositionByTickerSymbol"><strong>getPositionByTickerSymbol</strong></a>(self, symbol)</dt></dl>
+
+<hr>
+Methods inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><a name="OpenPositions-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="OpenPositions-getAPI"><strong>getAPI</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;valid&nbsp;tradeapi.<br>
+Ensures&nbsp;that&nbsp;a&nbsp;valid&nbsp;connection&nbsp;has&nbsp;been&nbsp;established.<br>
+Invalid&nbsp;connections&nbsp;are&nbsp;invalidated&nbsp;safely.</tt></dd></dl>
+
+<dl><dt><a name="OpenPositions-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="OpenPositions-isLiveAccount"><strong>isLiveAccount</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="OpenPositions-isPaperAccount"><strong>isPaperAccount</strong></a>(self)</dt><dd><tt>Checks&nbsp;the&nbsp;type&nbsp;of&nbsp;account&nbsp;connected&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="OpenPositions-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="QueryOrders">class <strong>QueryOrders</strong></a>(<a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;Base&nbsp;class&nbsp;for&nbsp;all&nbsp;requests&nbsp;to&nbsp;Alpaca.&nbsp;<br>
+This&nbsp;class&nbsp;understands&nbsp;how&nbsp;to&nbsp;work&nbsp;with&nbsp;all&nbsp;Alpaca&nbsp;requests.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#QueryOrders">QueryOrders</a></dd>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="QueryOrders-queryBullBearBuyOrderByClientOrderID"><strong>queryBullBearBuyOrderByClientOrderID</strong></a>(self, payload)</dt></dl>
+
+<dl><dt><a name="QueryOrders-querySellOrderByClientOrderID"><strong>querySellOrderByClientOrderID</strong></a>(self, payload)</dt></dl>
+
+<hr>
+Methods inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><a name="QueryOrders-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="QueryOrders-getAPI"><strong>getAPI</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;valid&nbsp;tradeapi.<br>
+Ensures&nbsp;that&nbsp;a&nbsp;valid&nbsp;connection&nbsp;has&nbsp;been&nbsp;established.<br>
+Invalid&nbsp;connections&nbsp;are&nbsp;invalidated&nbsp;safely.</tt></dd></dl>
+
+<dl><dt><a name="QueryOrders-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="QueryOrders-isLiveAccount"><strong>isLiveAccount</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="QueryOrders-isPaperAccount"><strong>isPaperAccount</strong></a>(self)</dt><dd><tt>Checks&nbsp;the&nbsp;type&nbsp;of&nbsp;account&nbsp;connected&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="QueryOrders-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SellOrder">class <strong>SellOrder</strong></a>(<a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;Base&nbsp;class&nbsp;for&nbsp;all&nbsp;requests&nbsp;to&nbsp;Alpaca.&nbsp;<br>
+This&nbsp;class&nbsp;understands&nbsp;how&nbsp;to&nbsp;work&nbsp;with&nbsp;all&nbsp;Alpaca&nbsp;requests.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#SellOrder">SellOrder</a></dd>
+<dd><a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SellOrder-submitLimit"><strong>submitLimit</strong></a>(self, payload)</dt></dl>
+
+<dl><dt><a name="SellOrder-submitMarket"><strong>submitMarket</strong></a>(self, payload)</dt></dl>
+
+<hr>
+Methods inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><a name="SellOrder-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="SellOrder-getAPI"><strong>getAPI</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;valid&nbsp;tradeapi.<br>
+Ensures&nbsp;that&nbsp;a&nbsp;valid&nbsp;connection&nbsp;has&nbsp;been&nbsp;established.<br>
+Invalid&nbsp;connections&nbsp;are&nbsp;invalidated&nbsp;safely.</tt></dd></dl>
+
+<dl><dt><a name="SellOrder-getConn"><strong>getConn</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="SellOrder-isLiveAccount"><strong>isLiveAccount</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<dl><dt><a name="SellOrder-isPaperAccount"><strong>isPaperAccount</strong></a>(self)</dt><dd><tt>Checks&nbsp;the&nbsp;type&nbsp;of&nbsp;account&nbsp;connected&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="SellOrder-isValid"><strong>isValid</strong></a>(self)</dt><dd><tt>Connects&nbsp;to&nbsp;the&nbsp;specifed&nbsp;Alpaca&nbsp;account.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="bullbearetfs.brokerages.alpaca.html#AlpacaAPIBase">AlpacaAPIBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>logger</strong> = &lt;Logger bullbearetfs.brokerages.alpaca (WARNING)&gt;</td></tr></table>
+</body></html>

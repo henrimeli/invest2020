@@ -136,3 +136,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+TEST_RUNNER = 'xmlrunner.extra.djangotestrunner.XMLTestRunner' if os.environ.get('TEST_RUNNER')==None else os.environ.get('TEST_RUNNER') 
+TEST_OUTPUT_DIR = './test-reports/unittest' if os.environ.get('TEST_OUTPUT_DIR')==None else os.environ.get('TEST_OUTPUT_DIR')
+TEST_OUTPUT_FILE_NAME = 'unittest.xml' if os.environ.get('TEST_OUTPUT_FILE_NAME')==None else os.environ.get('TEST_OUTPUT_FILE_NAME')
+BROWSER_NAME='safari' if os.environ.get('BROWSER_NAME')==None else os.environ.get('BROWSER_NAME')

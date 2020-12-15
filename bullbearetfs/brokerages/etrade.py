@@ -47,7 +47,7 @@ class AccountInformation(AlpacaAPIBase):
 
   def accountIsBlockedByBrokerage(self):
     account = self.getAPI().get_account() 
-    return account.trading_blocked:
+    return account.trading_blocked
 #
 # Mimics and adapts the the Alpaca Positions API
 #

@@ -4,25 +4,50 @@ import alpaca_trade_api as tradeapi
 import time, logging, json
 from datetime import date
 
+"""
+This example module shows various types of documentation available for use
+with pydoc.  To generate HTML documentation for this module issue the
+command:
+
+    pydoc -w foo
+
+"""
+
 logger = logging.getLogger(__name__)
 
-#
-# This is the base class for all ALPACA Requests.
-# This class knows how to work with Alpaca Infrastructure
 # https://paper-api.alpaca.markets
 class AlpacaAPIBase():
+  """
+      This is the Base class for all requests to Alpaca. 
+      This class understands how to work with all Alpaca requests.
+
+  """
  
   def __init__(self):
+    """
+      Connects to the specifed Alpaca account.
+    """
     self.tradeapi = tradeapi.REST()
     self.conn = tradeapi.stream2.StreamConn()
 
   def getAPI(self):
-  	return self.tradeapi
+    """
+      Returns a valid tradeapi.
+      Ensures that a valid connection has been established.
+      Invalid connections are invalidated safely.
+    """
+    return self.tradeapi
 
   def getConn(self):
-  	return self.conn 
+    """
+      Connects to the specifed Alpaca account.
+    """
+    return self.conn 
 
   def isPaperAccount(self):
+    """
+      Checks the type of account connected to. 
+    """
     paper_url = os.environ.get('APCA_API_BASE_URL')
     if paper_url.startswith('https://paper-api'):
       return True
@@ -33,10 +58,16 @@ class AlpacaAPIBase():
   # Add additional Security Layers on top of this call.
   #
   def isLiveAccount(self):
+    """
+      Connects to the specifed Alpaca account.
+    """
     return False
 
   def isValid(self):
-  	return True
+    """
+      Connects to the specifed Alpaca account.
+    """
+    return True
 
 #
 # This class accesses the Account and retrieve important information

@@ -13,6 +13,11 @@ CHOICES_BILLING_TYPES = (('Visa','Visa'),('Mastercard','Mastercard'),('Discover'
 # Jobs titles
 CHOICES_JOB_TITLES = (('Principal','Principal'),('Director','Director'),('S','Student'),('N/A','Not Available'),)
 
+"""
+  TODO: Describe the Module here ...
+
+  List the classes of the module here
+"""
 
 # ######################## User Management Package ######
 # Consists of the section that deals with user specific
@@ -26,6 +31,9 @@ CHOICES_JOB_TITLES = (('Principal','Principal'),('Director','Director'),('S','St
 #   CustomerSettings (Messages Notification)
 
 class CustomerBasic(models.Model):
+  """
+    TODO: describe the class here ...
+  """
   first_name = models.CharField(max_length=50,default='')
   last_name = models.CharField(max_length=50,default='')
   username = models.CharField(max_length=50,default='')
@@ -90,8 +98,7 @@ class Billing(models.Model):
 
 #Customer Profile (change type, team)
 class CustomerProfile(models.Model):
-  #TODO: In order to use imageField, pillow MUST be installed
-  #main_picture = models.ImageField(upload_to = 'pic_folder/', default = '')
+  main_picture = models.ImageField(upload_to = 'pic_folder/', default = '')
   job_title = models.CharField(max_length=25, choices = CHOICES_JOB_TITLES,default='Investor')
   short_bio = models.TextField(default=' ')
   tax_bracket = models.IntegerField(default=30)

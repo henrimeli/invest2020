@@ -15,6 +15,12 @@ import difflib
 from bullbearetfs.utilities.core import getTimeZoneInfo, getReversedTuple,displayOutput,displayError,strToDatetime
 from bullbearetfs.datasources.datasources import  BackTestArrayInfrastructure,BackTestFileInfrastructure, BackTestDatabaseInfrastructure
 
+"""
+  TODO: Describe the Module here ...
+
+  List the classes of the module here
+"""
+
 logger = logging.getLogger(__name__)
 
 ######################## Classes for Robot Execution Engine ###############
@@ -25,7 +31,12 @@ logger = logging.getLogger(__name__)
 # can be retrieved and re-used later
 #
 class ETFPairBackTestRobotExecutionEngine():
+  """
+    TODO: This class manipulates the BackTest Execution Functionality through the lifecycle of 
+    an execution.
 
+    List of methods: 
+  """
   def __init__(self,robot,executor_id,request=None, datasource=None):
     self.executor_id = executor_id
     self.request = request
@@ -75,6 +86,7 @@ class ETFPairBackTestRobotExecutionEngine():
     if isinstance(self.datasource,BackTestArrayInfrastructure):
       #Update the Executor Status to 'in progress', save the config_parameters
       executor.config_params = serialized
+      print("Size = {} ".format(len(serialized)))
       executor.start_date=None 
       executor.end_date = None 
       executor.execution_status='in progress'
@@ -220,7 +232,7 @@ class ETFPairRobotExecutionData(models.Model):
   trade_time = models.DateTimeField('date created',default=timezone.now) #This is the NOW time.
   exec_time = models.DateTimeField('date created',default=timezone.now)   #This is the time of the stock quote
   exec_action = models.CharField(max_length=10, choices = CHOICES_ACTIONS,default='buy') # Buy or Sell action. To expand and add protection
-  exec_params = models.CharField(max_length=500,default='', blank=True) #Which params were used
+  exec_params = models.CharField(max_length=3500,default='', blank=True) #Which params were used
   cost_or_income = models.FloatField(default=0) #Monetary transaction: cost or income ( cost is negative, income is positive)
   order_client_id = models.CharField(max_length=100,blank=True,null=True) #Keeps track of transactions in the TradeDataHolder table
 
@@ -258,7 +270,7 @@ class ETFPairRobotExecution(models.Model):
   exec_start_date = models.DateTimeField('date created',default=timezone.now) 
   exec_end_date = models.DateTimeField('date created',default=timezone.now) 
   robot = models.ForeignKey('ETFAndReversePairRobot',on_delete=models.PROTECT,blank=True,null=True)
-  config_params = models.CharField(max_length=500,default='', blank=True)
+  config_params = models.CharField(max_length=3500,default='', blank=True)
   result_data = models.CharField(max_length=100,default='', blank=True)
   execution_name = models.CharField(max_length=100,default='', blank=True)
   execution_pace = models.CharField(max_length=20, choices = CHOICES_EXECUTION_PACE,default='medium')

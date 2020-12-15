@@ -4,12 +4,9 @@ from django.utils import timezone
 from django.utils.timezone import datetime
 from django.utils import timezone
 from django.contrib.auth.models import  User
-from bullbearetfs.utilities.core import getTimeZoneInfo, shouldUsePrint, strToDatetime, getReversedTuple
-from bullbearetfs.utilities.errors import InvalidTradeDataHolderException
-
-#from pages.utilities.core import getTimeZoneInfo, getReversedTuple
+from bullbearetfs.utilities.core import getTimeZoneInfo, getReversedTuple
 import datetime, time, pytz, logging, unittest , sys,json
-#import pandas as pd
+import pandas as pd
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist,MultipleObjectsReturned
 
@@ -105,14 +102,20 @@ class EquityStrategy(models.Model):
     return True 
       
   def isBabadjouStrategy(self):
-    R_CHOICES_STRATEGY_CATEGORY = getReversedTuple(tuple_data=CHOICES_STRATEGY_CATEGORY)
-    value = R_CHOICES_STRATEGY_CATEGORY[self.strategy_category]
-    return value == 'Babadjou'
+    #R_CHOICES_STRATEGY_CATEGORY = getReversedTuple(tuple_data=CHOICES_STRATEGY_CATEGORY)
+    #value = R_CHOICES_STRATEGY_CATEGORY[self.strategy_category]
+    return self.strategy_category == 'Babadjou'
 
   def isBatchamStrategy(self):
-    R_CHOICES_STRATEGY_CATEGORY = getReversedTuple(tuple_data=CHOICES_STRATEGY_CATEGORY)
-    value = R_CHOICES_STRATEGY_CATEGORY[self.strategy_category]
-    return value == 'Batcham'
+    #R_CHOICES_STRATEGY_CATEGORY = getReversedTuple(tuple_data=CHOICES_STRATEGY_CATEGORY)
+    #value = R_CHOICES_STRATEGY_CATEGORY[self.strategy_category]
+    return self.strategy_category == 'Batcham'
+  
+  def getCompositionOnAcquisition(self):
+    composition = dict()
+    composition['bull']=self.getBullishCompositionOnAcquisition()
+    composition['bear']=self.getBearishCompositionOnAcquisition()
+    return composition
 
   def getBullishCompositionOnAcquisition(self): 
     if not self.manual_asset_composition_policy:
